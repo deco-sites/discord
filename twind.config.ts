@@ -18,6 +18,7 @@ export default {
       fontFamily: {
         sans: ["Albert Sans", "sans-serif"],
         serif: ["serif"],
+        luckiest: ["Luckiest Guy", "sans-serif"],
       },
     },
   },

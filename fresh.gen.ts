@@ -9,10 +9,13 @@ import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/_middleware.ts";
 import * as $3 from "./routes/index.tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
-import * as $$$0 from "./sections/GetStarted.tsx";
-import * as $$$1 from "./sections/Head.tsx";
-import * as $$$2 from "./sections/Markdown.tsx";
-import * as $$$3 from "./sections/QuillText.tsx";
+import * as $$$0 from "./sections/Banner.tsx";
+import * as $$$1 from "./sections/Feature.tsx";
+import * as $$$2 from "./sections/GetStarted.tsx";
+import * as $$$3 from "./sections/Head.tsx";
+import * as $$$4 from "./sections/Header.tsx";
+import * as $$$5 from "./sections/Markdown.tsx";
+import * as $$$6 from "./sections/QuillText.tsx";
 import * as $$$$0 from "./functions/LoadGitHubRaw.ts";
 
 const manifest: DecoManifest = {
@@ -24,13 +27,79 @@ const manifest: DecoManifest = {
   },
   islands: { "./islands/LiveControls.tsx": $$0 },
   sections: {
-    "./sections/GetStarted.tsx": $$$0,
-    "./sections/Head.tsx": $$$1,
-    "./sections/Markdown.tsx": $$$2,
-    "./sections/QuillText.tsx": $$$3,
+    "./sections/Banner.tsx": $$$0,
+    "./sections/Feature.tsx": $$$1,
+    "./sections/GetStarted.tsx": $$$2,
+    "./sections/Head.tsx": $$$3,
+    "./sections/Header.tsx": $$$4,
+    "./sections/Markdown.tsx": $$$5,
+    "./sections/QuillText.tsx": $$$6,
   },
   functions: { "./functions/LoadGitHubRaw.ts": $$$$0 },
   schemas: {
+    "./sections/Banner.tsx": {
+      "inputSchema": {
+        "title": " Banner",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+          },
+        },
+        "required": [
+          "title",
+          "description",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/Feature.tsx": {
+      "inputSchema": {
+        "title": " Feature",
+        "type": "object",
+        "properties": {
+          "image": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Image",
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+          },
+          "type": {
+            "type": "number",
+            "anyOf": [
+              {
+                "type": "number",
+                "const": 1,
+              },
+              {
+                "type": "number",
+                "const": 2,
+              },
+            ],
+            "title": "Type",
+          },
+        },
+        "required": [
+          "image",
+          "title",
+          "description",
+          "type",
+        ],
+      },
+      "outputSchema": null,
+    },
     "./sections/GetStarted.tsx": {
       "inputSchema": {
         "title": " Get Started",
@@ -93,6 +162,40 @@ const manifest: DecoManifest = {
           "faviconUrl",
           "styleUrls",
           "themeColor",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/Header.tsx": {
+      "inputSchema": {
+        "title": " Header",
+        "type": "object",
+        "properties": {
+          "links": {
+            "type": "array",
+            "items": {
+              "title": "Link",
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "title": "Label",
+                },
+                "url": {
+                  "type": "string",
+                  "title": "Url",
+                },
+              },
+              "required": [
+                "label",
+                "url",
+              ],
+            },
+            "title": "Links",
+          },
+        },
+        "required": [
+          "links",
         ],
       },
       "outputSchema": null,
